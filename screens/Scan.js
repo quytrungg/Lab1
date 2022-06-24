@@ -1,11 +1,6 @@
 import React from "react";
-import {
-    View,
-    Text,
-    Image,
-    TouchableOpacity
-} from "react-native"
-import { Camera } from 'expo-camera'
+import {View,Text,Image,TouchableOpacity} from "react-native";
+import { Camera } from 'expo-camera';
 import { COLORS, FONTS, SIZES, icons, images } from "../constants";
 
 const Scan = ({ navigation }) => {
@@ -13,7 +8,7 @@ const Scan = ({ navigation }) => {
 
     React.useEffect(() => {
         (async () => {
-          const { status } = await Camera.requestPermissionsAsync();
+          const { status } = await Camera.requesCameraPermissionsAsync();
           setHasPermission(status === 'granted');
         })();
       }, []);

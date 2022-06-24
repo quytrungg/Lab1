@@ -50,14 +50,14 @@ const BankAccount = ({navigation}) => {
         },
         {
             id: 7,
-            icon: icons.phone,
+            icon: icons.bill,
             color: COLORS.red,
             backgroundColor: COLORS.lightRed,
             description: "AB"
         },
         {
             id: 8,
-            icon: icons.more,
+            icon: icons.bill,
             color: COLORS.purple,
             backgroundColor: COLORS.lightpurple,
             description: "More"
@@ -68,7 +68,7 @@ const BankAccount = ({navigation}) => {
 
     const handelNotification = () =>{
       return(
-        alert("There is no notifications at the moment")
+        Alert.alert("Notifications", "There is no notifications at the moment")
       )
     }
 
@@ -104,7 +104,7 @@ const BankAccount = ({navigation}) => {
         const renderItem = ({ item }) => (
             <TouchableOpacity
                 style={{ marginBottom: SIZES.padding * 2, width: 111, alignItems: 'center' }}
-                onPress={() => alert("pressed")}
+                onPress={() => Alert.alert("Warning", "Bank is not opened yet")}
             >
                 <View
                     style={{

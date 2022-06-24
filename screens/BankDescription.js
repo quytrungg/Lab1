@@ -9,9 +9,9 @@ const BankDescription = ({ navigation }) => {
   function renderHeader() {
     return (
         <TouchableOpacity style={{ flexDirection: 'row', alignItems: "center", marginTop: SIZES.padding * 6,
-paddingHorizontal: SIZES.padding * 2}} onPress={() => navigation.navigate("BankAccount")}>
+paddingHorizontal: SIZES.padding * 2}} onPress={() => navigation.navigate("Home")}>
           <Image source={icons.back} resizeMode="contain" style={{ width: 15, height: 15, tintColor: COLORS.black}}/>
-          <Text style={{ marginLeft: SIZES.padding, color: COLORS.black, ...FONTS.h4 }} onPress={() => navigation.navigate("BankAccount")}>Back </Text>
+          <Text style={{ marginLeft: SIZES.padding, color: COLORS.black, ...FONTS.h4 }} onPress={() => navigation.navigate("Home")}>Back </Text>
         </TouchableOpacity>
     );
   }
@@ -164,12 +164,10 @@ paddingHorizontal: SIZES.padding * 2}} onPress={() => navigation.navigate("BankA
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : null}
             style={{ flex: 1 }}>
-            <LinearGradient colors={[COLORS.blueback,]} style={{ flex: 1 }}>
-                <ScrollView>
+            <LinearGradient colors={[COLORS.blueback]} style={{ flex: 1 }}>
+                <ScrollView style = {{backgroundColor: COLORS.blueback}}>
                     {renderHeader()}
                     {renderLogo()}
-                    {renderForm()}
-                    {renderButton()}
                 </ScrollView>
             </LinearGradient>
         </KeyboardAvoidingView>

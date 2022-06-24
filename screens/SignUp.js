@@ -153,7 +153,7 @@ paddingHorizontal: SIZES.padding * 2}} onPress={() => navigation.navigate("Start
                         justifyContent: 'center',
                         borderColor: COLORS.blueprim,
                     }}
-                    onPress={() => handleSignUp}>
+                    onPress={() => handleSignUp()}>
                     <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
@@ -164,8 +164,8 @@ paddingHorizontal: SIZES.padding * 2}} onPress={() => navigation.navigate("Start
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : null}
             style={{ flex: 1 }}>
-            <LinearGradient colors={[COLORS.blueback,]} style={{ flex: 1 }}>
-                <ScrollView>
+            <LinearGradient colors={[COLORS.blueback]} style={{ flex: 1 }}>
+                <ScrollView style={{backgroundColor: COLORS.blueback}}>
                     {renderHeader()}
                     {renderLogo()}
                     {renderForm()}
