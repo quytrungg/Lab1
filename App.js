@@ -28,7 +28,12 @@ const App = () => {
         <NavigationContainer theme={theme}>
             <Stack.Navigator
                 screenOptions={{
-                    headerShown: false
+                    tabBarShowLabel: false,
+                    tabBarStyle:[{
+                        display: "flex"
+                    },
+                    null],
+                    headerShown: false,
                 }}
                 initialRouteName={'StartUp'}>
                 <Stack.Screen name="BankDescription" component={BankDescription} />

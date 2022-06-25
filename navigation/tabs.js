@@ -161,7 +161,7 @@ const Tabs = () => {
                 }}
             />
             <Tab.Screen
-                name="User"
+                name="BankAccount"
                 component={BankAccount}
                 options={{
                     tabBarIcon: ({ focused }) => (

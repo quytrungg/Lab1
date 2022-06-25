@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {View,Text,Image,TouchableOpacity} from "react-native";
 import { Camera } from 'expo-camera';
 import { COLORS, FONTS, SIZES, icons, images } from "../constants";
@@ -8,7 +8,7 @@ const Scan = ({ navigation }) => {
 
     React.useEffect(() => {
         (async () => {
-          const { status } = await Camera.requesCameraPermissionsAsync();
+          const { status } = await Camera.requestCameraPermissionsAsync();
           setHasPermission(status === 'granted');
         })();
       }, []);
@@ -51,7 +51,7 @@ const Scan = ({ navigation }) => {
                     style={{
                         height: 45,
                         width: 45,
-                        backgroundColor: COLORS.green,
+                        backgroundColor: COLORS.bluesec,
                         borderRadius: 10,
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -129,7 +129,7 @@ const Scan = ({ navigation }) => {
                             style={{
                                 width: 40,
                                 height: 40,
-                                backgroundColor: COLORS.lightpurple,
+                                backgroundColor: COLORS.blueback,
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 borderRadius: 10
@@ -141,7 +141,7 @@ const Scan = ({ navigation }) => {
                                 style={{
                                     height: 25,
                                     width: 25,
-                                    tintColor: COLORS.purple
+                                    tintColor: COLORS.primary
                                 }}
                             />
                         </View>
@@ -160,7 +160,7 @@ const Scan = ({ navigation }) => {
                             style={{
                                 width: 40,
                                 height: 40,
-                                backgroundColor: COLORS.lightGreen,
+                                backgroundColor: COLORS.blueback,
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 borderRadius: 10
@@ -187,11 +187,13 @@ const Scan = ({ navigation }) => {
         console.log(result.data)
     }
 
+    const cameraRef = useRef<Camera>(null);
+
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.transparent }}>
             <Camera
                 ref={ref => {
-                    this.camera = ref
+                    Camera.camera = ref
                 }}
                 style={{ flex: 1 }}
                 captureAudio={false}
